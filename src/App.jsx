@@ -5,7 +5,7 @@ import { SiJavascript, SiTypescript, SiMongodb, SiExpress, SiTailwindcss, SiRedu
 import { motion, AnimatePresence } from 'framer-motion';
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState('projects');
   const [isMounted, setIsMounted] = useState(false);
 
