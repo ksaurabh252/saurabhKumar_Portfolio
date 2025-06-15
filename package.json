@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ksaurabh252.github.io/saurabh-resume",
+  "homepage": "https://ksaurabh252.github.io/saurabh-portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
