@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-
+import saurabhImg from '../assets/Saurabh_Kumar.jpg'
 import { motion } from 'framer-motion';
 
 const AboutSection = ({ darkMode }) => (
@@ -16,7 +16,7 @@ const AboutSection = ({ darkMode }) => (
           className={`w-72 h-72 rounded-full overflow-hidden mx-auto ${darkMode ? 'ring-4 ring-teal-500' : 'ring-4 ring-blue-600'} shadow-xl`}
         >
           <img
-            src="https://avatars.githubusercontent.com/u/G200584954"
+            src={saurabhImg}
             alt="Saurabh Kumar"
             className="w-full h-full object-cover"
           />
