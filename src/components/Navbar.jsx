@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 /* eslint-disable no-unused-vars */
 import { motion, AnimatePresence } from "framer-motion";
 
+// Navigation tabs for the navbar
 const NAV_TABS = ["about", "skills", "projects", "experience", "resume"];
 
 const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-
+  // Handles opening and downloading the resume PDF
   const handleResumeClick = () => {
     const fileUrl = "/saurabhKumar_Portfolio/SaurabhKumar-Resume.pdf";
 
@@ -21,6 +22,7 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
     link.click();
   };
 
+  // Closes mobile menu if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -44,6 +46,7 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
         } shadow-md sticky top-0 z-30`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
+        {/* Site Title */}
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -53,6 +56,7 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
           Saurabh Kumar
         </motion.h1>
         <div className="flex items-center space-x-4">
+          {/* Dark/Light Mode Toggle Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -64,12 +68,14 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
           >
             {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </motion.button>
+          {/* Mobile menu toggle button */}
           <button
-            className="mobile-menu-button md:hidden p-2 rounded-md focus:outline-none"
+            className="mobile-menu-button md:hidden p-2 rounded-md focus:outline-none hover:cursor-pointer"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
+              // Close icon
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -84,6 +90,7 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
                 />
               </svg>
             ) : (
+              // Hamburger icon
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -99,22 +106,22 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
               </svg>
             )}
           </button>
-          <nav className="hidden md:flex space-x-6  ">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-6">
             {NAV_TABS.map((tab) =>
               tab === "resume" ? (
+                // Resume tab: triggers resume open/download
                 <motion.a
                   key={tab}
                   whileHover={{ scale: 1.05, color: "#3B82F6" }}
                   whileTap={{ scale: 0.95 }}
-                  // href="/saurabhKumar_Portfolio/SaurabhKumar-Resume.pdf"
                   onClick={handleResumeClick}
-                  // rel="noopener noreferrer"
-                  // download="SaurabhKumar-Resume.pdf"
                   className="text-lg capitalize transition-colors duration-200 hover:text-blue-400 font-semibold hover:cursor-pointer"
                 >
                   Resume
                 </motion.a>
               ) : (
+                // Other tabs: set active tab
                 <motion.button
                   key={tab}
                   whileHover={{ scale: 1.05, color: "#3B82F6" }}
@@ -132,6 +139,8 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
           </nav>
         </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -145,16 +154,18 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
             <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
               {NAV_TABS.map((tab) =>
                 tab === "resume" ? (
+                  // Resume tab in mobile menu
                   <motion.a
                     key={tab}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleResumeClick}
                     download="SaurabhKumar-Resume.pdf"
-                    className="py-3 text-left text-lg capitalize transition-colors text-blue-500 font-semibold "
+                    className="py-3 text-left text-lg capitalize transition-colors text-blue-500 font-semibold hover:cursor-pointer "
                   >
                     Resume
                   </motion.a>
                 ) : (
+                  // Other tabs in mobile menu
                   <motion.button
                     key={tab}
                     whileTap={{ scale: 0.95 }}
@@ -162,7 +173,7 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
                       setActiveTab(tab);
                       setMobileMenuOpen(false);
                     }}
-                    className={`py-3 text-left text-lg capitalize transition-colors ${activeTab === tab
+                    className={`py-3 text-left text-lg capitalize hover:cursor-pointer transition-colors ${activeTab === tab
                       ? "text-blue-500 font-semibold"
                       : darkMode
                         ? "text-gray-300 hover:text-white"
