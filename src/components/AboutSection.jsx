@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-import saurabhImg from '../assets/Saurabh_Kumar.jpg'
 import { motion } from 'framer-motion';
 
 const AboutSection = ({ darkMode }) => (
@@ -8,57 +6,64 @@ const AboutSection = ({ darkMode }) => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className="flex flex-col md:flex-row items-center gap-12"
+      className="max-w-4xl mx-auto px-4"
     >
-      <div className="md:w-1/3">
+      <div className="space-y-8">
         <motion.div
-          whileHover={{ scale: 1.02 }}
-          className={`w-72 h-72 rounded-full overflow-hidden mx-auto ${darkMode ? 'ring-4 ring-teal-500' : 'ring-4 ring-blue-600'} shadow-xl`}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <img
-            src={saurabhImg}
-            alt="Saurabh Kumar"
-            className="w-full h-full object-cover"
-          />
+          <h2 className={`text-4xl font-bold font-['Poppins'] mb-6 text-center md:text-left ${darkMode ? 'text-white' : 'text-gray-900'
+            }`}>
+            About Me
+          </h2>
+          <p className={`text-lg leading-relaxed text-justify ${darkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+            Accomplished full stack web developer skilled in the MERN stack, SQL, Git, and Tailwind CSS. Excels in both independent and collaborative projects. Adapt at problem-solving, effective communication, and delivering high-quality, scalable web solutions. Committed to continuous learning and best development practices.
+          </p>
         </motion.div>
-      </div>
-      <motion.div
-        initial={{ x: 20 }}
-        animate={{ x: 0 }}
-        transition={{ delay: 0.3 }}
-        className="md:w-2/3 space-y-6"
-      >
-        <h2 className="text-4xl font-bold font-['Poppins'] mb-6">About Me</h2>
-        <p className="text-lg leading-relaxed">
-          Accomplished full stack web developer skilled in the MERN stack, SQL, Git, and Tailwind CSS. Excels in both independent and collaborative projects. Adapt at problem-solving, effective communication, and delivering high-quality, scalable web solutions. Committed to continuous learning and best development practices.
-        </p>
+
         <motion.div
           whileHover={{ y: -3 }}
-          className={`p-6 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-blue-50'} transition-all duration-300`}
+          className={`p-8 rounded-2xl shadow-lg transition-all duration-300 ${darkMode ? 'bg-gray-800' : 'bg-white border border-gray-200'
+            }`}
         >
-          <h3 className="text-2xl font-semibold mb-4 font-['Poppins']">Education</h3>
-          <ul className="space-y-3">
+          <h3 className={`text-2xl font-semibold mb-6 font-['Poppins'] text-center ${darkMode ? 'text-white' : 'text-gray-900'
+            }`}>
+            Education
+          </h3>
+          <ul className="space-y-4">
             <li className="flex items-start">
-              <span className="inline-block w-3 h-3 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
-              <div>
-                <span className="font-medium">Masai, Bengaluru</span> - Software Development (Present)
+              <span className={`inline-block w-4 h-4 rounded-full mt-1 mr-3 ${darkMode ? 'bg-teal-500' : 'bg-blue-600'
+                }`}></span>
+              <div className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
+                <span className={`font-medium text-lg ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Masai, Bengaluru
+                </span> - Software Development (Present)
               </div>
             </li>
             <li className="flex items-start">
-              <span className="inline-block w-3 h-3 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
-              <div>
-                <span className="font-medium">Indira Gandhi National Open University</span> - Master of Computer Application (Dec 2023)
+              <span className={`inline-block w-4 h-4 rounded-full mt-1 mr-3 ${darkMode ? 'bg-teal-500' : 'bg-blue-600'
+                }`}></span>
+              <div className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
+                <span className={`font-medium text-lg ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Indira Gandhi National Open University
+                </span> - Master of Computer Application (Dec 2023)
               </div>
             </li>
             <li className="flex items-start">
-              <span className="inline-block w-3 h-3 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
-              <div>
-                <span className="font-medium">Gaya College, Gaya</span> - Bachelor Of Science in Information Technology (Oct 2018)
+              <span className={`inline-block w-4 h-4 rounded-full mt-1 mr-3 ${darkMode ? 'bg-teal-500' : 'bg-blue-600'
+                }`}></span>
+              <div className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
+                <span className={`font-medium text-lg ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  Gaya College, Gaya
+                </span> - Bachelor Of Science in Information Technology (Oct 2018)
               </div>
             </li>
           </ul>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.div>
   </section>
 );
