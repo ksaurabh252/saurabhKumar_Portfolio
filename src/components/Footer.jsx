@@ -34,7 +34,7 @@ const Footer = ({ darkMode, isMounted }) => (
         </motion.a>
         <motion.a
           whileHover={{ y: -3, scale: 1.1, color: darkMode ? '#3B82F6' : '#2563EB' }}
-          href="#"
+          href="https://www.linkedin.com/in/ksaurabh252/"
           target="_blank"
           rel="noopener noreferrer"
           className={`text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-200`}
