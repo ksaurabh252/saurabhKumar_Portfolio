@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f9fafb;
+  color: #222;
+}
+
+.dark body {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+/* Profile photo hover effect */
+.profile-photo {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
