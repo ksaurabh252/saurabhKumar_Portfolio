@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import About from './components/AboutSection';
 import SkillsSection from './components/SkillsSection';
@@ -9,49 +8,113 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import ContactSection from './components/ContactSection';
 
-const tabVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.4 } }
-};
-
+/* =========================
+   App Component
+   ========================= */
 const App = () => {
+  /* =========================
+     State Management
+     ========================= */
   const [darkMode, setDarkMode] = useState(true);
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeSection, setActiveSection] = useState('home');
   const [isMounted, setIsMounted] = useState(false);
 
+  /* =========================
+     Intersection Observer Setup
+     ========================= */
   useEffect(() => {
     setIsMounted(true);
     document.documentElement.classList.toggle('dark', darkMode);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log('Active section:', entry.target.id);
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: [0.2],
+        rootMargin: '-90px 0px -200px 0px'
+      }
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, [darkMode]);
 
+  /* =========================
+     Main Layout Render
+     ========================= */
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'
       }`}>
+      {/* =========================
+          Navigation Bar
+          ========================= */}
       <Navbar
         darkMode={darkMode}
         setDarkMode={setDarkMode}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        activeTab={activeSection}
+        setActiveTab={setActiveSection}
       />
-      <main className="container mx-auto px-4 py-8">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            variants={tabVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            {activeTab === 'home' && <Home darkMode={darkMode} />}
-            {activeTab === 'about' && <About darkMode={darkMode} />}
-            {activeTab === 'skills' && <SkillsSection darkMode={darkMode} />}
-            {activeTab === 'projects' && <ProjectsSection darkMode={darkMode} />}
-            {activeTab === 'experience' && <ExperienceSection darkMode={darkMode} />}
-            {activeTab === 'contact' && <ContactSection darkMode={darkMode} />}
-          </motion.div>
-        </AnimatePresence>
+
+      {/* =========================
+          Main Content Sections
+          ========================= */}
+      <main className="w-full">
+        {/* Home Section */}
+        <section id="home" className="min-h-screen flex items-center justify-center">
+          <div className="container mx-auto px-4">
+            <Home darkMode={darkMode} />
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="min-h-screen flex items-center justify-center py-20">
+          <div className="container mx-auto px-4">
+            <About darkMode={darkMode} />
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section id="skills" className="min-h-screen flex items-center justify-center py-20 ">
+          <div className="container mx-auto px-4">
+            <SkillsSection darkMode={darkMode} />
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 mb-20">
+          <div className="container mx-auto px-4">
+            <ProjectsSection darkMode={darkMode} />
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="min-h-screen flex items-center justify-center py-20 ">
+          <div className="container mx-auto px-4">
+            <ExperienceSection darkMode={darkMode} />
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="min-h-screen flex items-center justify-center py-20">
+          <div className="container mx-auto px-4">
+            <ContactSection darkMode={darkMode} />
+          </div>
+        </section>
       </main>
+
+      {/* =========================
+          Footer Section
+          ========================= */}
       <Footer darkMode={darkMode} isMounted={isMounted} />
     </div>
   );
