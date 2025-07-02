@@ -1,13 +1,21 @@
 @import "tailwindcss";
 
-/* Smooth scrolling for navigation */
+
+
+
+/* =========================
+   Base Styles
+   ========================= */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 70px;
 }
 
 body {
   background: #f9fafb;
   color: #222;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
 .dark body {
@@ -15,12 +23,119 @@ body {
   color: #f3f4f6;
 }
 
-/* Profile photo hover effect */
-.profile-photo {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* =========================
+   Container & Layout
+   ========================= */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.profile-photo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+/* =========================
+   Section Styles
+   ========================= */
+section {
+  min-height: 100vh;
+  padding: 0 0;
+  scroll-margin-top: 70px;
+  position: relative;
+}
+
+section:not(:first-child) {
+  padding-top: 100px;
+}
+
+/* Section title divider */
+.section-divider {
+  width: 80px;
+  height: 4px;
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+/* =========================
+   Typography
+   ========================= */
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+/* =========================
+   Skills Section Specific
+   ========================= */
+.skill-category {
+  margin-bottom: 1rem;
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  margin-right: 0.75rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   Animations & Transitions
+   ========================= */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* =========================
+   Responsive Adjustments
+   ========================= */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+    scroll-margin-top: 60px;
+  }
+
+  section:not(:first-child) {
+    padding-top: 80px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .skill-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
