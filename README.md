@@ -1,25 +1,33 @@
 # Portfolio Website - Saurabh Kumar
 
-This is a personal portfolio website created using React, Tailwind CSS, and several modern web technologies. It showcases my skills, projects, and experience as a Full Stack Developer, specializing in the MERN stack.
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=flat&logo=framer&logoColor=white)
+![Netlify](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-brightgreen)
+
+## Live Demo
+
+👉 [Click here to view the live site](https://ksaurabh252.github.io/saurabhKumar_Portfolio/)
 
 ## Table of Contents
 
 - [About](#about)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
 - [Installation Instructions](#installation-instructions)
 - [Usage](#usage)
 - [License](#license)
 
 ## About
 
-This portfolio website demonstrates my work, technical expertise, and professional experience. It is designed with a modern, clean interface and has a dark mode toggle to enhance the user experience. The site is fully responsive and optimized for both desktop and mobile devices.
+This is a personal portfolio website created using React, Tailwind CSS, and modern frontend technologies. It showcases my skills, projects, and experience as a Full Stack Developer, specializing in the MERN stack.
 
 ### Sections:
 
 - **Home**: Introduction and a call to action for viewing projects or getting in touch.
 - **About**: Information about my educational background, work experience, and skillset.
-- **Skills**: A breakdown of my technical skills, including frontend and backend technologies.
+- **Skills**: A dynamically categorized breakdown of my technical skills, including frontend, backend, and tools.
 - **Projects**: Featured projects with detailed information about technologies used, features, and GitHub links.
 - **Experience**: Professional experience and responsibilities.
 - **Contact**: Ways to connect via email and social media links.
@@ -34,6 +42,8 @@ This portfolio website demonstrates my work, technical expertise, and profession
 
 ## Technologies Used
 
+This is a frontend-only project built with the following tools:
+
 - **Frontend**:
 
   - React.js (with React Hooks)
@@ -41,12 +51,31 @@ This portfolio website demonstrates my work, technical expertise, and profession
   - Framer Motion (for animations)
   - React Icons (for icons)
 
-- **Backend**: Not applicable (this is a frontend-only portfolio)
-
 - **Other Tools**:
-
   - Git for version control
-  - Netlify or similar platform for deployment
+  - GitHub Pages for deployment
+
+## Project Structure
+
+```
+├── assets/
+│   ├── Saurabh_Kumar..png
+│   └── Saurabh_Kumar.jpg
+├── components/
+│   ├── AboutSection.jsx
+│   ├── ContactSection.jsx
+│   ├── ExperienceSection.jsx
+│   ├── Footer.jsx
+│   ├── Home.jsx
+│   ├── Navbar.jsx
+│   ├── ProjectsSection.jsx
+│   ├── ScrollReveal.jsx
+│   └── SkillsSection.jsx
+├── App.css
+├── App.jsx
+├── index.css
+└── main.jsx
+```
 
 ## Installation Instructions
 
@@ -71,10 +100,10 @@ This portfolio website demonstrates my work, technical expertise, and profession
 4. Run the development server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
-   The website will be accessible at `http://localhost:3000`.
+   The website will be accessible at `http://localhost:5173` (or similar, depending on Vite config).
 
 ## Usage
 
