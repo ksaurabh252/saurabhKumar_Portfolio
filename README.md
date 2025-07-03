@@ -17,7 +17,6 @@
 - [Project Structure](#project-structure)
 - [Installation Instructions](#installation-instructions)
 - [Usage](#usage)
-- [License](#license)
 
 ## About
 
