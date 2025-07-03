@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaFileDownload, FaReact } from 'react-icons/fa';
@@ -32,13 +33,13 @@ const Home = ({ darkMode }) => {
   }, []);
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center min-h-[90vh] gap-8 px-6 py-12">
+    <section className="flex flex-col md:flex-row items-center justify-center min-h-[90vh] gap-8 px-4 py-12 max-w-7xl mx-auto">
 
       {/* =========================
           Text & Intro Section
           ========================= */}
-      <div className="md:w-1/2 space-y-8">
-        <div className="text-center md:text-left">
+      <div className="md:w-1/2 space-y-8 flex flex-col items-center md:items-start">
+        <div className="text-center md:text-left max-w-2xl">
 
           {/* =========================
               Animated Heading
@@ -138,7 +139,8 @@ const Home = ({ darkMode }) => {
               <motion.a
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                href="#projects"
+                href="https://github.com/ksaurabh252"
+                target='_blank'
                 className={`px-6 py-3 rounded-lg font-semibold flex items-center text-white transition-all shadow-lg ${darkMode ? 'bg-teal-600 hover:bg-teal-700 shadow-teal-500/25' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/25'}`}
               >
                 View My Work
@@ -170,11 +172,11 @@ const Home = ({ darkMode }) => {
           {[
             {
               icon: <FaGithub size={24} />,
-              url: "https://github.com/yourusername"
+              url: "https://github.com/ksaurabh252"
             },
             {
               icon: <FaLinkedin size={24} />,
-              url: "https://linkedin.com/in/yourusername"
+              url: "https://www.linkedin.com/in/ksaurabh252/"
             },
             {
               icon: <HiOutlineMail size={24} />,
