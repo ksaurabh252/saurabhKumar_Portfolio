@@ -2,6 +2,7 @@
    About Section Component
    Displays personal information and educational background
    ========================= */
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const AboutSection = ({ darkMode }) => (
@@ -24,13 +25,15 @@ const AboutSection = ({ darkMode }) => (
             ========================= */}
         <motion.div
           initial={{ y: 20 }}
-          animate={{ y: 0 }}
+          animate={{ y: 0 }} className="text-center mb-12"
           transition={{ duration: 0.5 }}
         >
-          <h2 className={`text-4xl font-bold font-['Poppins'] mb-6 text-center md:text-left ${darkMode ? 'text-white' : 'text-gray-900'
+          <h2 className={`text-4xl font-bold font-['Poppins'] mb-6 text-center  ${darkMode ? 'text-white' : 'text-gray-900'
             }`}>
             About Me
           </h2>
+          <div className={`w-20 h-1 mx-auto mb-3 rounded-full ${darkMode ? 'bg-teal-500' : 'bg-blue-600'
+            }`} />
           <p className={`text-lg leading-relaxed text-justify ${darkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
             Accomplished full stack web developer skilled in the MERN stack, SQL, Git, and Tailwind CSS.
