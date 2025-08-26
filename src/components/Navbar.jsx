@@ -223,7 +223,7 @@ const Navbar = ({ darkMode, setDarkMode, activeTab, setActiveTab }) => {
                     whileTap={{ scale: 0.95 }}
                     onClick={handleResumeClick}
                     download="SaurabhKumar-Resume.pdf"
-                    className={`py-2 text-left text-sm capitalize transition-colors font-semibold hover:cursor-pointer nav-link resume ${darkMode
+                    className={`py-2 text-left text-[1.2rem]  capitalize transition-colors font-semibold hover:cursor-pointer nav-link resume ${darkMode
                       ? "text-blue-400 hover:text-blue-300"
                       : "text-blue-600 hover:text-blue-700"
                       }`}
