@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaFileDownload, FaReact } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import saurabhPhoto from '../assets/Saurabh_Kumar.jpg';
-
+const resumeUrl = `${import.meta.env.BASE_URL}SaurabhKumar-Resume.pdf`;
 const Home = ({ darkMode }) => {
   // =========================
   // State for animated typing effect
@@ -150,12 +150,13 @@ const Home = ({ darkMode }) => {
               <motion.a
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                href="/resume.pdf"
+                href={resumeUrl}
                 download
                 className={`px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all shadow-lg ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-white shadow-gray-700/25' : 'bg-gray-800 hover:bg-gray-700 text-white shadow-gray-800/25'}`}
               >
                 <FaFileDownload /> Download CV
               </motion.a>
+
             </motion.div>
           )}
         </AnimatePresence>
