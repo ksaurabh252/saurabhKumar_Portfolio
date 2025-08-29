@@ -12,7 +12,8 @@ import { useRef, useState, useEffect } from "react";
 import mediTrack from "../assets/mediTrack.png";
 import mentor1 from "../assets/mentor1.png";
 import hobbyHive from "../assets/hobbyHive.png";
-import whistleSpace from '../assets/WhistleSpace.png'
+import whistleSpace from "../assets/WhistleSpace.png";
+
 /* =========================
    ProjectButton Component
    Reusable button for project links with theme support
@@ -99,7 +100,8 @@ const ProjectsSection = ({ darkMode }) => {
         "Audit logs",
         "Tax settings",
       ],
-    }, {
+    },
+    {
       title: "WhistleSpace",
       type: "fullstack",
       description:
@@ -111,7 +113,6 @@ const ProjectsSection = ({ darkMode }) => {
         "Express.js",
         "MongoDB",
         "JWT",
-
       ],
       githubLink: "https://github.com/ksaurabh252/WhistleSpace",
       deployedLink: "https://whistlespace.vercel.app/",
@@ -242,11 +243,11 @@ const ProjectsSection = ({ darkMode }) => {
             Conditional rendering based on content overflow
             ========================= */}
         {projects.length > cardsPerView && (
-          <div className="absolute top-[280px] left-0 right-0 flex justify-between px-2 z-20 pointer-events-none ">
+          <div className="absolute top-[280px] left-[-1.5rem] right-[-1.5rem] flex justify-between px-2 z-20 pointer-events-none ">
             {/* Left Navigation Arrow */}
             <button
               onClick={() => scroll(-1)}
-              className={`pointer-events-auto hidden md:flex hover:cursor-pointer ${darkMode
+              className={`pointer-events-auto hidden md:flex hover:cursor-pointer   ${darkMode
                 ? "bg-gray-700/90 text-white hover:bg-gray-600 "
                 : "bg-white/90 text-gray-700 hover:bg-gray-100"
                 } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm  ${showLeft ? "opacity-100" : "opacity-0 pointer-events-none"
