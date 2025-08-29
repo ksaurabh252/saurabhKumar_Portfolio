@@ -12,7 +12,7 @@ import { useRef, useState, useEffect } from "react";
 import mediTrack from "../assets/mediTrack.png";
 import mentor1 from "../assets/mentor1.png";
 import hobbyHive from "../assets/hobbyHive.png";
-
+import whistleSpace from '../assets/WhistleSpace.png'
 /* =========================
    ProjectButton Component
    Reusable button for project links with theme support
@@ -98,6 +98,31 @@ const ProjectsSection = ({ darkMode }) => {
         "Session management and PDF receipt generation",
         "Audit logs",
         "Tax settings",
+      ],
+    }, {
+      title: "WhistleSpace",
+      type: "fullstack",
+      description:
+        "A modern, secure, and anonymous feedback platform for schools, teams. Provides an admin dashboard, AI moderation, and JWT-secured authentication.",
+      technologies: [
+        "React",
+        "Chakra UI",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+
+      ],
+      githubLink: "https://github.com/ksaurabh252/WhistleSpace",
+      deployedLink: "https://whistlespace.vercel.app/",
+      image: whistleSpace,
+      features: [
+        "Anonymous feedback submission system",
+        "Tagging & categorization",
+        "Comment threads for engagement",
+        "Secure admin dashboard with authentication",
+        "Email notifications for admins",
+        "Rate limiting & CORS integrated",
       ],
     },
   ];
@@ -217,14 +242,14 @@ const ProjectsSection = ({ darkMode }) => {
             Conditional rendering based on content overflow
             ========================= */}
         {projects.length > cardsPerView && (
-          <div className="absolute top-[280px] left-0 right-0 flex justify-between px-2 z-20 pointer-events-none">
+          <div className="absolute top-[280px] left-0 right-0 flex justify-between px-2 z-20 pointer-events-none ">
             {/* Left Navigation Arrow */}
             <button
               onClick={() => scroll(-1)}
-              className={`pointer-events-auto hidden md:flex ${darkMode
-                ? "bg-gray-700/90 text-white hover:bg-gray-600"
+              className={`pointer-events-auto hidden md:flex hover:cursor-pointer ${darkMode
+                ? "bg-gray-700/90 text-white hover:bg-gray-600 "
                 : "bg-white/90 text-gray-700 hover:bg-gray-100"
-                } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm ${showLeft ? "opacity-100" : "opacity-0 pointer-events-none"
+                } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm  ${showLeft ? "opacity-100" : "opacity-0 pointer-events-none"
                 }`}
             >
               <FiChevronLeft size={20} />
@@ -232,7 +257,7 @@ const ProjectsSection = ({ darkMode }) => {
             {/* Right Navigation Arrow */}
             <button
               onClick={() => scroll(1)}
-              className={`pointer-events-auto hidden md:flex ${darkMode
+              className={`pointer-events-auto hidden md:flex hover:cursor-pointer ${darkMode
                 ? "bg-gray-700/90 text-white hover:bg-gray-600"
                 : "bg-white/90 text-gray-700 hover:bg-gray-100"
                 } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm ${showRight ? "opacity-100" : "opacity-0 pointer-events-none"
