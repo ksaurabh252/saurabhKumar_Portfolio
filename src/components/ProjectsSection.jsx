@@ -13,7 +13,6 @@ import mediTrack from "../assets/mediTrack.png";
 import mentor1 from "../assets/mentor1.png";
 import hobbyHive from "../assets/hobbyHive.png";
 import whistleSpace from "../assets/WhistleSpace.png";
-
 /* =========================
    ProjectButton Component
    Reusable button for project links with theme support
@@ -85,22 +84,7 @@ const ProjectsSection = ({ darkMode }) => {
         "Prescription management with document uploads",
       ],
     },
-    {
-      title: "MentorPay",
-      type: "frontend",
-      description:
-        "A mentor session tracking and payout platform with automated calculations and documentation.",
-      technologies: ["React", "Redux Toolkit", "Radix UI", "Tailwind CSS"],
-      githubLink: "https://github.com/ksaurabh252/MentorPay",
-      deployedLink: "https://mentorspay.netlify.app/",
-      image: mentor1,
-      features: [
-        "Automated payout",
-        "Session management and PDF receipt generation",
-        "Audit logs",
-        "Tax settings",
-      ],
-    },
+
     {
       title: "WhistleSpace",
       type: "fullstack",
@@ -124,6 +108,22 @@ const ProjectsSection = ({ darkMode }) => {
         "Secure admin dashboard with authentication",
         "Email notifications for admins",
         "Rate limiting & CORS integrated",
+      ],
+    },
+    {
+      title: "MentorPay",
+      type: "frontend",
+      description:
+        "A mentor session tracking and payout platform with automated calculations and documentation.",
+      technologies: ["React", "Redux Toolkit", "Radix UI", "Tailwind CSS"],
+      githubLink: "https://github.com/ksaurabh252/MentorPay",
+      deployedLink: "https://mentorspay.netlify.app/",
+      image: mentor1,
+      features: [
+        "Automated payout",
+        "Session management and PDF receipt generation",
+        "Audit logs",
+        "Tax settings",
       ],
     },
   ];
