@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaFileDownload, FaReact } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import saurabhPhoto from '../assets/Saurabh_Kumar.jpg';
+
 const resumeUrl = `${import.meta.env.BASE_URL}SaurabhKumar-Resume.pdf`;
+
 const Home = ({ darkMode }) => {
   // =========================
   // State for animated typing effect
@@ -31,6 +33,17 @@ const Home = ({ darkMode }) => {
     }, 150);
     return () => clearInterval(typing);
   }, []);
+
+  // =========================
+  // Handle dual resume action (open + download)
+  // =========================
+  const handleDownloadCV = () => {
+    window.open(resumeUrl, "_blank"); // 👉 Opens in new tab
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "SaurabhKumar-Resume.pdf"; // 👉 Triggers download
+    link.click();
+  };
 
   return (
     <section className="flex flex-col md:flex-row items-center justify-center min-h-[90vh] gap-8 px-4 py-12 max-w-7xl mx-auto">
@@ -75,7 +88,6 @@ const Home = ({ darkMode }) => {
               >
                 <span className="relative inline-block">
                   <span className={darkMode ? 'text-teal-500' : 'text-teal-600'}>
-                    {/* Letter-by-letter animation */}
                     {tagline.split('').map((char, i) => (
                       <motion.span
                         key={i}
@@ -94,8 +106,6 @@ const Home = ({ darkMode }) => {
                       </motion.span>
                     ))}
                   </span>
-
-                  {/* Animated underline */}
                   <motion.span
                     initial={{ scaleX: 0 }}
                     animate={{
@@ -121,7 +131,8 @@ const Home = ({ darkMode }) => {
             animate={{ opacity: 1, transition: { delay: 1.8 } }}
             className={`text-lg md:text-xl mb-8 leading-relaxed font-medium ${darkMode ? 'text-gray-300' : 'text-gray-800'}`}
           >
-            Building modern web applications with React, Node.js, and MongoDB. Passionate about creating efficient, scalable solutions with clean code.
+            Building modern web applications with React, Node.js, and MongoDB.
+            Passionate about creating efficient, scalable solutions with clean code.
           </motion.p>
         </div>
 
@@ -146,24 +157,24 @@ const Home = ({ darkMode }) => {
                 View My Work
               </motion.a>
 
-              {/* Download CV Button */}
-              <motion.a
+              {/* Download CV Button (dual behavior) */}
+              <motion.button
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                href={resumeUrl}
-                download
-                className={`px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all shadow-lg ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-white shadow-gray-700/25' : 'bg-gray-800 hover:bg-gray-700 text-white shadow-gray-800/25'}`}
+                onClick={handleDownloadCV}
+                className={`px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all shadow-lg hover:cursor-pointer ${darkMode
+                  ? 'bg-gray-700 hover:bg-gray-600 text-white shadow-gray-700/25'
+                  : 'bg-gray-800 hover:bg-gray-700 text-white shadow-gray-800/25'
+                  }`}
               >
                 <FaFileDownload /> Download CV
-              </motion.a>
-
+              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* =========================
             Social Links Container
-            Animated flex container for social media icons
             ========================= */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -171,18 +182,9 @@ const Home = ({ darkMode }) => {
           className="flex gap-4 justify-center md:justify-start mt-8"
         >
           {[
-            {
-              icon: <FaGithub size={24} />,
-              url: "https://github.com/ksaurabh252"
-            },
-            {
-              icon: <FaLinkedin size={24} />,
-              url: "https://www.linkedin.com/in/ksaurabh252/"
-            },
-            {
-              icon: <HiOutlineMail size={24} />,
-              url: "mailto:ksaurabh252@gmail.com"
-            }
+            { icon: <FaGithub size={24} />, url: "https://github.com/ksaurabh252" },
+            { icon: <FaLinkedin size={24} />, url: "https://www.linkedin.com/in/ksaurabh252/" },
+            { icon: <HiOutlineMail size={24} />, url: "mailto:ksaurabh252@gmail.com" }
           ].map((social, index) => (
             <motion.a
               key={index}
@@ -191,7 +193,10 @@ const Home = ({ darkMode }) => {
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className={`p-3 rounded-full transition-colors shadow-lg ${darkMode ? 'bg-gray-800 text-gray-200 hover:bg-gray-700 shadow-gray-800/25' : 'bg-gray-100 text-gray-800 hover:bg-gray-200 shadow-gray-500/20 border border-gray-300'}`}
+              className={`p-3 rounded-full transition-colors shadow-lg ${darkMode
+                ? 'bg-gray-800 text-gray-200 hover:bg-gray-700 shadow-gray-800/25'
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200 shadow-gray-500/20 border border-gray-300'
+                }`}
             >
               {social.icon}
             </motion.a>
@@ -207,8 +212,10 @@ const Home = ({ darkMode }) => {
         animate={{ opacity: 1, scale: 1, transition: { delay: 1.5, type: "spring", stiffness: 100, damping: 10 } }}
         className="md:w-1/2 flex justify-center mt-8 md:mt-0"
       >
-        <div className={`relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group home-img ${darkMode ? 'ring-4 ring-teal-500' : 'ring-4 ring-blue-600'}`}>
-          {/* Profile Image */}
+        <div
+          className={`relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group home-img ${darkMode ? 'ring-4 ring-teal-500' : 'ring-4 ring-blue-600'
+            }`}
+        >
           <img
             src={saurabhPhoto}
             alt="Saurabh Kumar"
@@ -217,9 +224,9 @@ const Home = ({ darkMode }) => {
             height="320"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          {/* React Logo Badge */}
           <motion.div
-            className={`absolute -bottom-4 -right-4 p-2 rounded-full shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white border border-gray-200'}`}
+            className={`absolute -bottom-4 -right-4 p-2 rounded-full shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white border border-gray-200'
+              }`}
             initial={{ scale: 0 }}
             animate={{ scale: 1, transition: { delay: 2.0 } }}
             whileHover={{ rotate: 15 }}
