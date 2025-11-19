@@ -13,6 +13,7 @@ import mediTrack from "../assets/mediTrack.png";
 import mentor1 from "../assets/mentor1.png";
 import hobbyHive from "../assets/hobbyHive.png";
 import whistleSpace from "../assets/WhistleSpace.png";
+import PulseCRM from "../assets/PulseCRM.png";
 /* =========================
    ProjectButton Component
    Reusable button for project links with theme support
@@ -52,21 +53,30 @@ const ProjectsSection = ({ darkMode }) => {
      ========================= */
   const projects = [
     {
-      title: "HobbyHive",
-      type: "backend",
+      title: "PulseCRM",
+      type: "Full Stack",
       description:
-        "A Backend project for hobby enthusiasts with group management, forum discussions, and real-time chat features.",
-      technologies: ["Node.js", "Express.js", "MongoDB", "Socket.IO"],
-      githubLink: "https://github.com/ksaurabh252/HobbyHive",
-      deployedLink: "https://hobbyhive.onrender.com/",
-      image: hobbyHive,
+        "A fast, full-stack CRM with secure JWT auth, role-based access, real-time updates, and complete lead management with analytics.",
+      technologies: [
+        "React",
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Express",
+        "PostgreSQL",
+      ],
+      githubLink: "https://github.com/ksaurabh252/PulseCRM",
+      deployedLink: "https://pulse-crm-tau.vercel.app/",
+      image: PulseCRM,
       features: [
-        "User & group management APIs",
-        "Real-time group chat with Socket.IO",
-        "Calendar integration",
-        "Gamification system",
+        "JWT auth + Role-based access",
+        "Lead lifecycle (CRUD)",
+        "Real-time notifications (Socket.io)",
+        "Lead activity timeline",
+        "Admin user management",
+        "Analytics dashboard (Recharts)",
       ],
     },
+
     {
       title: "MediTrack",
       type: "frontend",
@@ -124,6 +134,22 @@ const ProjectsSection = ({ darkMode }) => {
         "Session management and PDF receipt generation",
         "Audit logs",
         "Tax settings",
+      ],
+    },
+    {
+      title: "HobbyHive",
+      type: "backend",
+      description:
+        "A Backend project for hobby enthusiasts with group management, forum discussions, and real-time chat features.",
+      technologies: ["Node.js", "Express.js", "MongoDB", "Socket.IO"],
+      githubLink: "https://github.com/ksaurabh252/HobbyHive",
+      deployedLink: "https://hobbyhive.onrender.com/",
+      image: hobbyHive,
+      features: [
+        "User & group management APIs",
+        "Real-time group chat with Socket.IO",
+        "Calendar integration",
+        "Gamification system",
       ],
     },
   ];
@@ -215,18 +241,21 @@ const ProjectsSection = ({ darkMode }) => {
           ========================= */}
       <div className="text-center mb-10">
         <h2
-          className={`text-4xl font-bold ${darkMode ? "text-white" : "text-gray-900"
-            }`}
+          className={`text-4xl font-bold ${
+            darkMode ? "text-white" : "text-gray-900"
+          }`}
         >
           Featured Projects
         </h2>
         <div
-          className={`w-20 h-1 mx-auto mt-2 rounded-full ${darkMode ? "bg-teal-500" : "bg-blue-600"
-            }`}
+          className={`w-20 h-1 mx-auto mt-2 rounded-full ${
+            darkMode ? "bg-teal-500" : "bg-blue-600"
+          }`}
         />
         <p
-          className={`mt-4 max-w-2xl mx-auto ${darkMode ? "text-gray-300" : "text-gray-600"
-            }`}
+          className={`mt-4 max-w-2xl mx-auto ${
+            darkMode ? "text-gray-300" : "text-gray-600"
+          }`}
         >
           Here are some of my recent projects that showcase my skills in
           full-stack development.
@@ -247,22 +276,26 @@ const ProjectsSection = ({ darkMode }) => {
             {/* Left Navigation Arrow */}
             <button
               onClick={() => scroll(-1)}
-              className={`pointer-events-auto hidden md:flex hover:cursor-pointer   ${darkMode
-                ? "bg-gray-700/90 text-white hover:bg-gray-600 "
-                : "bg-white/90 text-gray-700 hover:bg-gray-100"
-                } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm  ${showLeft ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
+              className={`pointer-events-auto hidden md:flex hover:cursor-pointer   ${
+                darkMode
+                  ? "bg-gray-700/90 text-white hover:bg-gray-600 "
+                  : "bg-white/90 text-gray-700 hover:bg-gray-100"
+              } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm  ${
+                showLeft ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
             >
               <FiChevronLeft size={20} />
             </button>
             {/* Right Navigation Arrow */}
             <button
               onClick={() => scroll(1)}
-              className={`pointer-events-auto hidden md:flex hover:cursor-pointer ${darkMode
-                ? "bg-gray-700/90 text-white hover:bg-gray-600"
-                : "bg-white/90 text-gray-700 hover:bg-gray-100"
-                } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm ${showRight ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
+              className={`pointer-events-auto hidden md:flex hover:cursor-pointer ${
+                darkMode
+                  ? "bg-gray-700/90 text-white hover:bg-gray-600"
+                  : "bg-white/90 text-gray-700 hover:bg-gray-100"
+              } rounded-full w-10 h-10 items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 backdrop-blur-sm ${
+                showRight ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
             >
               <FiChevronRight size={20} />
             </button>
@@ -288,15 +321,17 @@ const ProjectsSection = ({ darkMode }) => {
                   Contains image, details, and action buttons
                   ========================= */}
               <div
-                className={`h-full rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${darkMode
-                  ? "bg-gray-800 border border-gray-700"
-                  : "bg-white border border-gray-100"
-                  }`}
+                className={`h-full rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  darkMode
+                    ? "bg-gray-800 border border-gray-700"
+                    : "bg-white border border-gray-100"
+                }`}
               >
                 {/* Project Image Section */}
                 <div
-                  className={`overflow-hidden ${p.type === "backend" ? "bg-gray-100" : ""
-                    }`}
+                  className={`overflow-hidden ${
+                    p.type === "backend" ? "bg-gray-100" : ""
+                  }`}
                 >
                   <img
                     src={p.image}
@@ -310,14 +345,16 @@ const ProjectsSection = ({ darkMode }) => {
                   {/* Title and Type Badge */}
                   <div className="flex justify-between items-start mb-3">
                     <h3
-                      className={`text-xl font-bold ${darkMode ? "text-white" : "text-gray-900"
-                        }`}
+                      className={`text-xl font-bold ${
+                        darkMode ? "text-white" : "text-gray-900"
+                      }`}
                     >
                       {p.title}
                     </h3>
                     <span
-                      className={`text-xs px-2 py-1 rounded-full ${typeStyles[p.type] || typeStyles.default
-                        }`}
+                      className={`text-xs px-2 py-1 rounded-full ${
+                        typeStyles[p.type] || typeStyles.default
+                      }`}
                     >
                       {p.type}
                     </span>
@@ -325,8 +362,9 @@ const ProjectsSection = ({ darkMode }) => {
 
                   {/* Project Description */}
                   <p
-                    className={`text-[1rem] mb-4 ${darkMode ? "text-gray-300" : "text-gray-600"
-                      }`}
+                    className={`text-[1rem] mb-4 ${
+                      darkMode ? "text-gray-300" : "text-gray-600"
+                    }`}
                   >
                     {p.description}
                   </p>
@@ -356,8 +394,9 @@ const ProjectsSection = ({ darkMode }) => {
                   {/* Technologies Used */}
                   <div className="mb-4">
                     <h4
-                      className={`text-lg font-semibold mb-2 ${darkMode ? "text-gray-400" : "text-gray-500"
-                        }`}
+                      className={`text-lg font-semibold mb-2 ${
+                        darkMode ? "text-gray-400" : "text-gray-500"
+                      }`}
                     >
                       Technologies:
                     </h4>
@@ -365,10 +404,11 @@ const ProjectsSection = ({ darkMode }) => {
                       {p.technologies.map((tech, j) => (
                         <span
                           key={j}
-                          className={`px-3 py-1 text-xs rounded-full ${darkMode
-                            ? "bg-gray-700 text-blue-300"
-                            : "bg-blue-50 text-blue-700"
-                            }`}
+                          className={`px-3 py-1 text-xs rounded-full ${
+                            darkMode
+                              ? "bg-gray-700 text-blue-300"
+                              : "bg-blue-50 text-blue-700"
+                          }`}
                         >
                           {tech}
                         </span>
@@ -379,8 +419,9 @@ const ProjectsSection = ({ darkMode }) => {
                   {/* Key Features List */}
                   <div>
                     <h4
-                      className={`text-lg font-semibold mb-2 ${darkMode ? "text-gray-400" : "text-gray-500"
-                        }`}
+                      className={`text-lg font-semibold mb-2 ${
+                        darkMode ? "text-gray-400" : "text-gray-500"
+                      }`}
                     >
                       Key Features:
                     </h4>
@@ -388,12 +429,14 @@ const ProjectsSection = ({ darkMode }) => {
                       {p.features.map((f, idx) => (
                         <li
                           key={idx}
-                          className={`flex items-start text-base ${darkMode ? "text-gray-300" : "text-gray-600"
-                            }`}
+                          className={`flex items-start text-base ${
+                            darkMode ? "text-gray-300" : "text-gray-600"
+                          }`}
                         >
                           <span
-                            className={`mr-2 mt-1 ${darkMode ? "text-teal-400" : "text-teal-600"
-                              }`}
+                            className={`mr-2 mt-1 ${
+                              darkMode ? "text-teal-400" : "text-teal-600"
+                            }`}
                           >
                             •
                           </span>
